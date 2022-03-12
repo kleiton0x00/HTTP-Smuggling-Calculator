@@ -1,14 +1,14 @@
-# TECL_DesyncCalculator
+# HTTP CL.TE & TE.CL Desync Calculator
 
-Perform TE.CL HTTP Request Smuggling attacks by crafting HTTP Request automatically.
+Perform CL.TE and TE.CL HTTP Request Smuggling attacks by crafting HTTP Request automatically.
 
-A simple python script which allows you to customise both Normal request and Smuggled request and calculates the Content-Length and TE.CL Chunk which is crucial part during TE.CL Smuggling Exploit Development.
+A simple python script which allows you to customise both Normal request and Smuggled request and calculates the Content-Length and TE.CL Chunk which is crucial part during the Smuggling Exploit Development.
 
 ## Installation
 
 ```
-git clone https://github.com/kleiton0x00/TECL_DesyncCalculator.git  
-cd TECL_DesyncCalculator  
+git clone https://github.com/kleiton0x00/HTTP-Smuggling-Calculator.git  
+cd HTTP-Smuggling-Calculator
 chmod +x TECL_DesyncCalculator.py  
 python3 TECL_DesyncCalculator.py
 ```
@@ -37,14 +37,25 @@ Transfer-Encoding\n : chunked
 
 - HTTP Method can be: POST, GET, OPTIONS, PUT, DELETE and so on...  
 - The directory can be **/** or **/directory** or it can be an endpoint with parameter **/index.php?id=1**  
-- HTTP Protocol can be **HTTP/1.1** or **HTTP/2**  
+- HTTP Protocol can only be **HTTP/1.1** (HTTP/2 protocol is a whole another story) 
 
+## CL.TE usage
+- To add headers in the smuggled request (line 75):  
+```smuggle += "My Header: my value" + RN```
+
+- To add body request in the smuggled request (line: 58):  
+```smuggle_body += "search=kleiton0x7e&id=1" + RN```
+
+- To add headers in the normal request (line: 89):  
+```regular += "My header: my value" + RN```
+
+## TE.CL usage
 **Note:** If you want to add more headers, you can uncomment the following lines **41-44**. If you want to add your own headers, follow the rules below:
-- To add additional **Normal** request:  
-```smuggle += "your new header" + RN```
+- To add headers **Normal** request:  
+```smuggle += "My header: my value" + RN```
 
-- To add additional **Smuggled** request:  
-```prefix += "your new header" + RN```
+- To add headers in the  **Smuggled** request:  
+```prefix += "My header: my value" + RN```
 
 ## Articles
 
